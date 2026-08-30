@@ -1,0 +1,84 @@
+generated: '2026-08-30'
+method: probed
+source: 'Direct HTTP probe of /.well-known/* on every Tridge host discovered during
+  enrichment (www.tridge.com, api.tridge.com, accounts.tridge.com, app.tridge.com).'
+name: Tridge well-known probe
+description: 'Probe record for RFC 8615 well-known documents. Every path probed returned
+  404 — Tridge publishes no security.txt, OpenID/OAuth discovery document, api-catalog,
+  ai-plugin manifest or A2A agent card on any host. No WellKnown or SecurityTxt pointer
+  is wired into apis.yml, because this file records an absence, not a presence.'
+hosts:
+- host: www.tridge.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: api.tridge.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+- host: accounts.tridge.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/jwks.json
+    status: 404
+    file: null
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+- host: app.tridge.com
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    note: 'FALSE POSITIVE — rejected. app.tridge.com is a single-page application whose
+      catch-all answers HTTP 200 with the same 126KB text/html shell for every path,
+      including /openapi.json. The body is not JSON and carries no AgentCard shape,
+      so this is recorded as a miss, not a hit.'
+notes:
+- 'accounts.tridge.com runs an OAuth 2.0 authorization endpoint (/oauth/authorize,
+  observed 302) and a token endpoint (/oauth/token, observed 405 to GET) but serves
+  no RFC 8414 / OpenID Connect discovery document at any probed path.'
+- 'Tridge does publish /llms.txt at www.tridge.com (HTTP 200, saved verbatim to llms/tridge-llms.txt)
+  and a /robots.txt with an explicit three-tier AI-crawler policy, so the absence of
+  well-known documents is not an absence of agent-facing policy — it is published at
+  the site root instead of under /.well-known/.'

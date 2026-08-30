@@ -1,0 +1,59 @@
+generated: '2026-08-30'
+method: probed
+source: 'Observed redirect chain from https://www.tridge.com/login (HTTP 302) to
+  https://accounts.tridge.com/oauth/authorize, plus direct probes of accounts.tridge.com
+  and api.tridge.com.'
+name: Tridge authentication
+description: 'Tridge publishes no API authentication documentation. What is recorded
+  here was observed by probe, not read from a developer reference, and it describes
+  the PLATFORM sign-in used by the Tridge web application — it is not confirmed to be
+  the credential model for the commercial data API, which is arranged through sales.'
+documented: false
+docs: null
+schemes:
+- id: platform_oauth2_authorization_code
+  type: oauth2
+  flow: authorizationCode
+  observed: true
+  authorization_url: https://accounts.tridge.com/oauth/authorize
+  token_url: https://accounts.tridge.com/oauth/token
+  evidence:
+  - url: https://www.tridge.com/login
+    status: 302
+    note: 'Location: https://accounts.tridge.com/oauth/authorize?response_type=code&client_id=<uuid>&state=…&redirect_uri=https%3A%2F%2Fwww.tridge.com%2Flogin%2Fclient&hl=en
+      — an RFC 6749 authorization-code request issued by Tridge''s own first-party
+      web client.'
+  - url: https://accounts.tridge.com/oauth/authorize
+    status: 302
+    note: Authorization endpoint responds to an anonymous request with a redirect.
+  - url: https://accounts.tridge.com/oauth/token
+    status: 405
+    note: 'Token endpoint exists and rejects GET with 405 Method Not Allowed, consistent
+      with a POST-only OAuth token endpoint.'
+  scopes_documented: false
+  note: 'No scope values could be established: no scope parameter appears in the
+    observed authorization request and no scopes/permissions reference page is
+    published, so scopes/tridge-scopes.yml is deliberately not written rather than
+    filled with guesses.'
+discovery:
+  openid_configuration: null
+  oauth_authorization_server: null
+  note: 'Neither RFC 8414 (/.well-known/oauth-authorization-server) nor OpenID Connect
+    discovery (/.well-known/openid-configuration) is served on accounts.tridge.com;
+    both return 404. An OAuth client cannot bootstrap from metadata and must be
+    configured out of band.'
+api_surface:
+- host: api.tridge.com
+  path: /graphql
+  status: 403
+  body: crc rejected
+  note: 'Anonymous GET and POST are rejected by an origin/CSRF gate ("crc rejected",
+    served by gunicorn) before any authentication challenge is issued — no
+    WWW-Authenticate header and no OAuth challenge is returned, so the credential
+    type for this surface could not be determined anonymously. www.tridge.com/robots.txt
+    additionally disallows /graphql and /api/ for all user agents.'
+gaps:
+- No public API authentication documentation.
+- No API key issuance, key-prefix convention, or self-serve credential flow published.
+- No scope or permission model published.
+- No authorization-server metadata document, so no machine-readable auth discovery.

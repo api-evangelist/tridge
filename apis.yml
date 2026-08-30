@@ -1,23 +1,113 @@
 aid: tridge
 name: Tridge
-description: 'Tridge is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Tridge is a South Korea-headquartered global agri-food trade intelligence
+  and sourcing platform. It combines a data layer of structured cross-border trade,
+  price, production, seasonality and weather data (the company cites 682M+ trade data
+  points and 65M+ price records across 200+ markets), a network layer of verified
+  buyers and suppliers in 190+ countries, and an AI layer that runs trade workflows
+  from discovery through deal closure. Products include Market Curations, Sourcing
+  Hub, Data & Analytics, Tridge Eye (market intelligence) and Tridge Ark (AI-driven
+  export sales outreach). Tridge advertises an API for integrating its global price
+  and trade data into customer systems, but publishes no public developer portal,
+  reference documentation or machine-readable contract — access is arranged through
+  a sales conversation.'
+image: https://cdn-new.tridge.com/assets/SWDU73HM.jpg
 url: https://raw.githubusercontent.com/api-evangelist/tridge/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-30'
 modified: '2026-08-30'
 tags:
 - Company
-apis: []
+- Agriculture
+- Food
+- Trade
+- Commodities
+- Market Data
+- Supply Chain
+- Sourcing
+- Analytics
+- Price Data
+- Intelligence
+- Artificial Intelligence
+apis:
+- name: Tridge Data & Analytics API
+  description: 'Tridge advertises a commercial API for integrating its global agri-food
+    price and trade data into a customer''s own systems ("the most comprehensive and
+    powerful API to allow you to integrate our global price data and real-time insights
+    into your business or application with ease" — tridge.com/about/data-analytics/price).
+    No public developer portal, reference documentation, OpenAPI/AsyncAPI contract
+    or self-serve signup was found; the published call to action is a sales enquiry
+    form. A GraphQL endpoint backing the web application exists at api.tridge.com/graphql
+    but returns HTTP 403 ("crc rejected") to anonymous callers, and www.tridge.com/robots.txt
+    disallows /graphql and /api/ for all crawlers. baseURL is deliberately omitted:
+    Tridge does not publish one, and guessing it from the domain would be fabrication.'
+  humanURL: https://www.tridge.com/about/data-analytics/price
+  tags:
+  - Price Data
+  - Trade Data
+  - Agriculture
+  - Market Data
+  x-access: sales-gated
+  properties:
+  - type: Authentication
+    url: authentication/tridge-authentication.yml
+  - type: RateLimits
+    url: rate-limits/tridge-rate-limits.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/tridge-domain-security.yml
 - type: Website
-  url: https://www.hiive.com/securities/tridge-stock
+  url: https://www.tridge.com/
+- type: Support
+  url: https://www.tridge.com/help-center
+- type: Blog
+  url: https://blog.tridge.com/
+- type: Pricing
+  url: https://www.tridge.com/pricing
+- type: Login
+  url: https://www.tridge.com/login
+- type: TermsOfService
+  url: https://www.tridge.com/terms
+- type: PrivacyPolicy
+  url: https://www.tridge.com/privacy
+- type: LLMsTxt
+  url: llms/tridge-llms.txt
+- type: Plans
+  url: plans/tridge-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/tridge-rate-limits.yml
+- type: Authentication
+  url: authentication/tridge-authentication.yml
+x-enrichment:
+  date: '2026-08-30'
+  status: minimal
+  artifacts_added: 7
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: >-
+    Tridge markets a price-data API on its Data & Analytics pages but ships no developer
+    portal, no API reference and no machine-readable contract; every "Get Started" route
+    resolves to /contact-sales?category=DATA_PACKAGE, and the only anonymously reachable
+    API surface (api.tridge.com/graphql) answers HTTP 403 "crc rejected" while
+    robots.txt disallows /graphql and /api/ outright.
+  evidence:
+  - url: https://www.tridge.com/about/data-analytics/price
+    status: 200
+  - url: https://www.tridge.com/contact-sales
+    status: 200
+  - url: https://api.tridge.com/graphql
+    status: 403
+  - url: https://www.tridge.com/developers
+    status: 404
+  - url: https://api.tridge.com/openapi.json
+    status: 404
+  checked: '2026-08-30'

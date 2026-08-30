@@ -1,0 +1,29 @@
+generated: '2026-08-30'
+method: searched
+source: https://www.tridge.com/pricing
+name: Tridge plans and pricing
+description: 'Tridge publishes no priced plans. www.tridge.com/pricing returns HTTP
+  200 but renders client-side and contains no tier names, prices, currencies, billing
+  periods, quotas or overage terms in the served HTML — the page''s only actionable
+  content is site navigation and a "Contact sales" call to action. Product pages
+  (Data & Analytics, Sourcing Hub, Tridge Eye, Tridge Ark) likewise route to
+  /contact-sales rather than to a priced signup. Every commercial term, including
+  any API data package, is negotiated through a sales conversation.'
+plan_count: 0
+plans: []
+pricing_model: contact-sales
+public_pricing: false
+self_serve_signup: false
+sales_contact: https://www.tridge.com/contact-sales
+evidence:
+- url: https://www.tridge.com/pricing
+  status: 200
+  note: 'HTTP 200, 130432 bytes, JS-rendered; served HTML contains no plan or price
+    content.'
+- url: https://www.tridge.com/about/data-analytics/price
+  status: 200
+  note: 'Advertises the price-data API and a "Get Started" link to
+    /contact-sales?category=DATA_PACKAGE — no price is stated.'
+- url: https://www.tridge.com/contact-sales
+  status: 200
+  note: Sales enquiry form; the published route to any commercial term.

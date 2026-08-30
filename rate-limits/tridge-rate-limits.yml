@@ -1,0 +1,28 @@
+generated: '2026-08-30'
+method: searched
+source: https://www.tridge.com/
+name: Tridge rate limits
+description: 'No published rate limits. Tridge operates no public developer portal
+  or API reference, so there is no documented quota, window, burst allowance, or
+  documented set of rate-limit response headers. The one anonymously reachable API
+  surface found (api.tridge.com/graphql) rejects unauthenticated callers with HTTP
+  403 "crc rejected" before any limit is exercised, so no runtime rate-limit header
+  could be observed either. Recorded as an honest zero rather than omitted.'
+limit_count: 0
+limits: []
+headers: []
+retry_after: null
+exhaustion_status: null
+evidence:
+- url: https://www.tridge.com/llms.txt
+  status: 200
+  note: 'Provider-published site map for AI clients; lists products and policies and
+    names no API, developer portal, or rate limit.'
+- url: https://api.tridge.com/graphql
+  status: 403
+  note: 'Anonymous GET and POST both return 403 with body "crc rejected" (gunicorn);
+    no RateLimit-*/X-RateLimit-*/Retry-After headers present on the response.'
+- url: https://www.tridge.com/robots.txt
+  status: 200
+  note: 'Publishes crawl-delay values (5-10s) for named bots — a crawler courtesy
+    policy, not an API rate limit; not counted as one.'

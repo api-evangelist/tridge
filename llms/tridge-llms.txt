@@ -1,0 +1,36 @@
+# Tridge -- Intelligence That Moves Markets
+
+> Tridge is the intelligence layer for global agri-food trade.
+> AI-powered intelligence and workflow automation built on 682M+ trade data points, 480K+ verified users, 1M+ global users, 350K+ companies, 200+ markets, and 12+ years of structured native trade data.
+
+The agri-food industry runs on opacity and manual effort -- information asymmetry, trust gaps, and execution bottlenecks. Tridge solves this with three layers: a Data Layer (12+ years of structured, native trade data), a Network Layer (an active ecosystem of global buyers and suppliers), and an AI Layer that executes actual trade workflows from discovery to deal closure.
+
+## Products
+
+- [Market Curations](https://www.tridge.com/market-curations): Curated market intelligence by product and country. Browse export, import, and domestic market data including price trends, trade volumes, company-level trade activity, and HS code-based comparisons
+- [Sourcing Hub](https://www.tridge.com/sourcing-hub): Agri-trade platform connecting 20K+ verified companies across 190+ countries with 135K+ registered products. Get a free sourcing or export diagnosis, discover suppliers, and manage fulfillment
+- [Data Analytics](https://www.tridge.com/data-analytics): Global agri-food data analytics platform providing trade data (682M+ data points), production statistics, price trends (65M+ records), seasonality, weather, and customs clearance tracking
+
+## Main Solutions
+
+- [Tridge Eye](https://www.tridge.com/about/tridge-eye): Intelligence solution for strategic trade decisions. Eye Speaker delivers daily tailored reports on price changes, trade policy, and climate from verified news and reliable data. Eye Shelf analyzes data by product, company, region, and market to track pricing trends, trade volumes, and import shares. Eye Book connects internal trade data with market intelligence to monitor performance, identify inefficiencies, and optimize costs
+- [Tridge Ark](https://www.tridge.com/tridge-ark): AI-powered export sales platform. AI agents activate 10,000+ targeted buyers in days (not months), manage all outreach and conversations at scale, and deliver only qualified high-intent leads -- with zero operational burden. From targeting to closed deal, the entire sales process is automated
+
+## Solutions by Role
+
+- [For Procurement](https://www.tridge.com/solutions/procurement): Price benchmarking against 65M+ global price records and verified supplier discovery for procurement teams. Average 15-17x ROI
+- [For Traders](https://www.tridge.com/solutions/traders): Deal acceleration platform with 682M+ trade data points and 200K+ verified buyer network to cut deal cycles from months to days
+- [For Brands & Manufacturers](https://www.tridge.com/solutions/brands-manufacturers): International expansion without export teams. Connects food brands to verified distributors across 140+ markets within 60 days
+- [For Commodity Exporters](https://www.tridge.com/solutions/commodity-exporter): Find importers and distributors actively sourcing your category. 200K+ verified buyers, 10,000+ reachable per campaign, 5-10 qualified introductions within 60 days
+- [For Government](https://www.tridge.com/solutions/government): AI-driven buyer development at scale for trade promotion agencies. Helps more exporters go global without growing agency headcount
+
+## About
+
+- [Company](https://www.tridge.com/about/company-introduction): About Tridge - our mission, team, and global presence
+- [Contact](https://www.tridge.com/contact-us): Get in touch with our team
+
+## Optional
+
+- [Privacy Policy](https://www.tridge.com/privacy): Privacy policy
+- [Terms of Service](https://www.tridge.com/terms): Terms of service
+- [Help Center](https://www.tridge.com/help-center): User guides and support resources

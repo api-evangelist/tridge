@@ -1,0 +1,34 @@
+generated: '2026-08-30'
+method: searched
+source: 'Registry searches against registry.npmjs.org, pypi.org, and the Tridge
+  website/llms.txt; plus GitHub namespace checks.'
+name: Tridge client packages
+description: 'No first-party Tridge SDK or client library was found in any public
+  package registry, and Tridge publishes no SDK or source-code links on its site or
+  in its llms.txt. No SDKs pointer is wired into apis.yml, because this file records
+  an absence.'
+package_count: 0
+packages: []
+namespace_collisions:
+- registry: pypi
+  name: tridge
+  url: https://pypi.org/project/tridge/
+  version: 0.1.0
+  published: '2024-08-10'
+  official: false
+  note: 'NOT Tridge the company. Summary reads "Simple wrapper around our remote-logging
+    API"; author is an unrelated individual (Demianight) and every project URL points
+    at github.com/Demianight/tridge. Recorded here so a later pass does not
+    misattribute it.'
+- registry: github
+  name: tridge
+  url: https://github.com/tridge
+  official: false
+  note: 'NOT Tridge the company. github.com/tridge is Andrew Tridgell, the author of
+    Samba and rsync. No GitHubOrganization pointer is wired for Tridge; no
+    Tridge-owned org was found (tridge-com, tridge-inc, tridgeinc all 404).'
+- registry: npm
+  name: tridge
+  status: 404
+  official: false
+  note: registry.npmjs.org/tridge returns {"error":"Not found"} — the name is unclaimed.
