@@ -11,6 +11,20 @@ description: 'Tridge is a South Korea-headquartered global agri-food trade intel
   and trade data into customer systems, but publishes no public developer portal,
   reference documentation or machine-readable contract — access is arranged through
   a sales conversation.'
+accessModel:
+  pricing: unknown
+  onboarding: approval
+  trial: false
+  try_now: false
+  public: false
+  label: Requires approval
+  confidence: medium
+  source:
+  - authentication
+  - rate-limits
+  - security
+  generated: '2026-09-02'
+  method: derived
 image: https://cdn-new.tridge.com/assets/SWDU73HM.jpg
 url: https://raw.githubusercontent.com/api-evangelist/tridge/refs/heads/main/apis.yml
 x-type: company
