@@ -43,8 +43,8 @@ tags:
 - Sourcing
 - Analytics
 - Price Data
-- Intelligence
 - Artificial Intelligence
+- Market Intelligence
 apis:
 - name: Tridge Data & Analytics API
   description: 'Tridge advertises a commercial API for integrating its global agri-food
@@ -125,3 +125,5 @@ x-coverage:
   - url: https://api.tridge.com/openapi.json
     status: 404
   checked: '2026-08-30'
+x-tags-removed:
+- Intelligence
